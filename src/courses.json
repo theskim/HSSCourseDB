@@ -5,7 +5,7 @@
     "title": "Computers and Society",
     "url": "https://artsci.calendar.utoronto.ca/course/csc300h1",
     "course_avg": "A-",
-    "description": ""
+    "description": "Lite course, four 1000 word essays and a take-home final"
   },
   {
     "id": 2,
@@ -46,5 +46,13 @@
     "url": "https://engineering.calendar.utoronto.ca/course/for308h1",
     "course_avg": "N/A",
     "description": ""
+  },
+  {
+    "id": 7,
+    "code": "GGR124H1",
+    "title": "Discovering Wood and its Role in Societal Development",
+    "url": "https://artsci.calendar.utoronto.ca/course/ggr124h1",
+    "course_avg": "B+",
+    "description": "No prerequisites required, concepts are easy to understand, only 3 assignments, 1 midterm, and 1 final"
   }
 ]
