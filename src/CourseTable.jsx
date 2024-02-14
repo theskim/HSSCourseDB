@@ -52,7 +52,7 @@ const CoursesTable = ({ courses }) => {
             <tbody>
             {currentCourses.map((course) => (
                 <tr key={course.id}>
-                <td>{course.code}</td>
+                <td><a href={course.url}>{course.code}</a></td>
                 <td>{course.title}</td>
                 <td>{course.course_avg}</td>
                 <td>{course.description}</td>
