@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Arial', sans-serif;
   margin-top: 20px;
+  font-family: 'InterTight', 'Arial', sans-serif;
 }
 
 table {
@@ -19,8 +19,13 @@ th, td {
 }
 
 th {
-  background-color: #4CAF50;
+  background-color: #4c34c3;
   color: white;
+}
+
+p {
+    color: #291880;
+    font-size: 2rem;
 }
 
 tr:nth-child(even) {
