@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "code": "CSC300H1",
+    "title": "Computers and Society",
+    "url": "https://artsci.calendar.utoronto.ca/course/csc300h1",
+    "course_avg": "A-",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "code": "TEP444H1",
+    "title": "Positive Psychology for Engineers",
+    "url": "https://engineering.calendar.utoronto.ca/course/tep444h1",
+    "course_avg": "A-",
+    "description": "0 lecs (except for the first 3 weeks and the final week... of which almost all except the first and last can be skipped) weekly meetings w ur team that can be dealt with v quickly"
+  },
+  {
+    "id": 3,
+    "code": "HPS346H1",
+    "title": "Modifying and Optimizing Life: on the Peculiar Alliance between AI, Biology, and Engineering",
+    "url": "https://artsci.calendar.utoronto.ca/course/hps346h1",
+    "course_avg": "N/A",
+    "description": "Easiest course you can take. Don't need to attend lectures, just post in discussion board. easiest A+ ever. no midterm, no final. 2 essays both under 2000 words"
+  },
+  {
+    "id": 4,
+    "code": "TEP442H1",
+    "title": "Cognitive and Psychological Foundations of Effective Leadership",
+    "url": "https://engineering.calendar.utoronto.ca/course/tep442h1",
+    "course_avg": "N/A",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "code": "TEP343H1",
+    "title": "Engineering Leadership",
+    "url": "https://engineering.calendar.utoronto.ca/course/tep343h1",
+    "course_avg": "N/A",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "code": "FOR308H1",
+    "title": "Discovering Wood and its Role in Societal Development",
+    "url": "https://engineering.calendar.utoronto.ca/course/for308h1",
+    "course_avg": "N/A",
+    "description": ""
+  }
+]
