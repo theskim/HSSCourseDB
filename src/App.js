@@ -31,6 +31,16 @@ const App = () => {
 
     const closeXModal = () => {
         setTopCourses([]); 
+        setSelectedFields({
+            csc: false,
+            businessMinor: false,
+            aiMinor: false,
+            geography: false,
+            architecture: false,
+            mythology: false,
+            communication: false,
+            goal: 'minimizeWorkload' 
+        });
         setShowTopCourses(false); 
         setIsModalOpen(false);
     };
