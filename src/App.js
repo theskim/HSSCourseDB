@@ -96,7 +96,7 @@ const App = () => {
             somewhatPrioritizedCourses = [...new Set([...somewhatPrioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('ARC'))])];
             sortedCourses = sortedCourses.filter(course => !course.code.startsWith('ARC'));
         }
-        if (selectedFields.architecture){
+        if (selectedFields.mythology){
             somewhatPrioritizedCourses = [...new Set([...somewhatPrioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('CLA'))])];
             sortedCourses = sortedCourses.filter(course => !course.code.startsWith('CLA'));
         }

@@ -42,7 +42,7 @@
     "url": "https://engineering.calendar.utoronto.ca/course/tep343h1",
     "course_avg": "B+",
     "description": "",
-    "workload": 3
+    "workload": 4
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "url": "https://engineering.calendar.utoronto.ca/course/for308h1",
     "course_avg": "A-",
     "description": "Chill bird course. easy 85. Assignments are super chill like scavenger hunt, forest bathing, and written assignments are easy. Not very much workload. Prof is super lenient",
-    "workload": 3
+    "workload": 2
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "url": "https://artsci.calendar.utoronto.ca/course/ggr124h1",
     "course_avg": "B",
     "description": "No prerequisites required, concepts are easy to understand, only 3 assignments, 1 midterm, and 1 final",
-    "workload": 4
+    "workload": 5
   },
   {
     "id": 8,
@@ -78,7 +78,7 @@
     "url": "https://daniels.calendar.utoronto.ca/course/arc181h1",
     "course_avg": "B+",
     "description": "",
-    "workload": 2
+    "workload": 3
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "url": "https://artsci.calendar.utoronto.ca/course/cla204h1",
     "course_avg": "B+",
     "description": "I took CLA204 last semester with professor Watton and it was great. Lectures were excellent and while there were a lot of readings honestly you can get by with only about half of them since he did a great job reviewing them in the lectures. Since there was pretty much no weekly graded work, it makes the class very light during the year but stressful during midterm and exam season, but over all I'd say very easy overall. \n \n I took CLA204 over the summer, it was all essay / writing assignments with a writing based exam. Definitely a pretty bird course (in my opinion). The only thing that I was 'stressed' about was completing the readings which you can basically find summaries for. Ended with a 95.",
-    "workload": 2
+    "workload": 3
   },
   {
     "id": 11,
@@ -105,7 +105,7 @@
     "url": "https://engineering.calendar.utoronto.ca/course/jre410h1",
     "course_avg": "B",
     "description": "Take it for Business Minor",
-    "workload": 5
+    "workload": 7
   },
   {
     "id": 13,
@@ -114,6 +114,6 @@
     "url": "https://engineering.calendar.utoronto.ca/course/jre420h1",
     "course_avg": "B",
     "description": "Take it for Business Minor",
-    "workload": 4
+    "workload": 5
   }
 ]
