@@ -6,7 +6,8 @@
     "url": "https://artsci.calendar.utoronto.ca/course/csc300h1",
     "course_avg": "A-",
     "description": "Lite course, tutorial attendance, four 1000 word essays, and a take-home final",
-    "workload": 1
+    "workload": 1,
+    "summer": false
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "url": "https://engineering.calendar.utoronto.ca/course/tep444h1",
     "course_avg": "A-",
     "description": "0 lecs (except for the first 3 weeks and the final week... of which almost all except the first and last can be skipped) weekly meetings w ur team that can be dealt with v quickly",
-    "workload": 1
+    "workload": 1,
+    "summer": true
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "url": "https://artsci.calendar.utoronto.ca/course/hps346h1",
     "course_avg": "B",
     "description": "Easiest course you can take. Don't need to attend lectures, just post in discussion board. easiest A+ ever. no midterm, no final. 2 essays both under 2000 words (counts for AI minor)",
-    "workload": 5
+    "workload": 5,
+    "summer": false
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "url": "https://engineering.calendar.utoronto.ca/course/tep442h1",
     "course_avg": "A-",
     "description": "",
-    "workload": 3
+    "workload": 3,
+    "summer": false
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "url": "https://engineering.calendar.utoronto.ca/course/tep343h1",
     "course_avg": "B+",
     "description": "",
-    "workload": 4
+    "workload": 4,
+    "summer": false
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "url": "https://engineering.calendar.utoronto.ca/course/for308h1",
     "course_avg": "A-",
     "description": "Chill bird course. easy 85. Assignments are super chill like scavenger hunt, forest bathing, and written assignments are easy. Not very much workload. Prof is super lenient",
-    "workload": 2
+    "workload": 2,
+    "summer": false
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "url": "https://artsci.calendar.utoronto.ca/course/ggr124h1",
     "course_avg": "B",
     "description": "No prerequisites required, concepts are easy to understand, only 3 assignments, 1 midterm, and 1 final",
-    "workload": 5
+    "workload": 5,
+    "summer": false
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "url": "https://artsci.calendar.utoronto.ca/course/hps100h1",
     "course_avg": "B+",
     "description": "It’s super bird when I took it last semester. I got a 73 in the two essays (40%) and probably a high 60 in final exam (it was on Quercus and open book) but still ended with a 84. The class average was B+. My profs were Elise K. Burton, Karina Vold in fall, and on acorn it says that the winter’s prof is Cory Lewis. I hear that Cory’s hps100 is super bird and you can get a 4.0 very easily, but I don’t know if Cory will teach in the summer",
-    "workload": 2
+    "workload": 2,
+    "summer": true
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "url": "https://daniels.calendar.utoronto.ca/course/arc181h1",
     "course_avg": "B+",
     "description": "",
-    "workload": 3
+    "workload": 3,
+    "summer": false
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "url": "https://artsci.calendar.utoronto.ca/course/cla204h1",
     "course_avg": "B+",
     "description": "I took CLA204 last semester with professor Watton and it was great. Lectures were excellent and while there were a lot of readings honestly you can get by with only about half of them since he did a great job reviewing them in the lectures. Since there was pretty much no weekly graded work, it makes the class very light during the year but stressful during midterm and exam season, but over all I'd say very easy overall. \n \n I took CLA204 over the summer, it was all essay / writing assignments with a writing based exam. Definitely a pretty bird course (in my opinion). The only thing that I was 'stressed' about was completing the readings which you can basically find summaries for. Ended with a 95.",
-    "workload": 3
+    "workload": 3,
+    "summer": true
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "url": "https://engineering.calendar.utoronto.ca/course/jre300h1",
     "course_avg": "B-",
     "description": "Take it for Business Minor",
-    "workload": 8
+    "workload": 8,
+    "summer": true
   },
   {
     "id": 12,
@@ -105,7 +116,8 @@
     "url": "https://engineering.calendar.utoronto.ca/course/jre410h1",
     "course_avg": "B",
     "description": "Take it for Business Minor",
-    "workload": 7
+    "workload": 7,
+    "summer": true
   },
   {
     "id": 13,
@@ -114,7 +126,8 @@
     "url": "https://engineering.calendar.utoronto.ca/course/jre420h1",
     "course_avg": "B+",
     "description": "Take it for Business Minor",
-    "workload": 5
+    "workload": 5,
+    "summer": true
   },
   {
     "id": 14,
@@ -123,6 +136,17 @@
     "url": "https://artsci.calendar.utoronto.ca/course/ggr252h1",
     "course_avg": "B-",
     "description": "",
-    "workload": 6
+    "workload": 6,
+    "summer": false
+  },
+  {
+    "id": 15,
+    "code": "HPS200H1",
+    "title": "Science and Valuey",
+    "url": "https://artsci.calendar.utoronto.ca/course/hps200h1",
+    "course_avg": "B",
+    "description": "Cory Lewis is a very fair and kind prof, very approachable (I had HPS200 online though). You won't regret taking either course, and if you make a decent effort then I think you'll do well.",
+    "workload": 4,
+    "summer": true
   }
 ]

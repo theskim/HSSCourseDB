@@ -19,9 +19,9 @@ const CoursesTable = ({ courses }) => {
     let sortableCourses = [...courses];
     if (sortConfig.key !== null) {
         sortableCourses.sort((a, b) => { 
-        if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.ascending ? -1 : 1;
-        if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.ascending ? 1 : -1;
-        return 0;
+            if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.ascending ? -1 : 1;
+            if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.ascending ? 1 : -1;
+            return 0;
         });
     }
     return sortableCourses;
@@ -45,6 +45,7 @@ const CoursesTable = ({ courses }) => {
               <th onClick={() => requestSort('title')}>Title</th>
               <th onClick={() => requestSort('course_avg')}>Typical Avg.</th>
               <th onClick={() => requestSort('description')}>Why this Course?</th>
+              <th onClick={() => requestSort('summer')}>Summer?</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +55,9 @@ const CoursesTable = ({ courses }) => {
                 <td>{course.title}</td>
                 <td>{course.course_avg}</td>
                 <td>{course.description}</td>
+                <td>
+                    {course.summer ? '✓' : '✕'}
+                </td>
               </tr>
             ))}
           </tbody>

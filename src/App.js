@@ -140,7 +140,7 @@ const App = () => {
             {isModalOpen && (
                 <div className="modal-background">
                     <div className="modal-content">
-                        <button className="close-button" onClick={closeXModal}>X</button>
+                        <button className="close-button" onClick={closeXModal}>✕</button>
                             {!showTopCourses ? (
                                 <form className="form" onSubmit={handleSubmit}>
                                     <div className="checkbox-group">
