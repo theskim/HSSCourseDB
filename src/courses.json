@@ -115,5 +115,14 @@
     "course_avg": "B+",
     "description": "Take it for Business Minor",
     "workload": 5
+  },
+  {
+    "id": 14,
+    "code": "GGR252H1",
+    "title": "Marketing Geography",
+    "url": "https://artsci.calendar.utoronto.ca/course/ggr252h1",
+    "course_avg": "B-",
+    "description": "",
+    "workload": 6
   }
 ]

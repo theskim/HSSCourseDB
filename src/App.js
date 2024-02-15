@@ -75,12 +75,17 @@ const App = () => {
             sortedCourses.sort(sortCoursesByWorkload);
 
         let prioritizedCourses = [];
-        if (selectedFields.businessMinor) {
+        if (selectedFields.businessMinor){
             prioritizedCourses = sortedCourses.filter(course => course.code.startsWith('JRE'));
-            prioritizedCourses = [...new Set([...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('TEP'))])];
+
+            if (selectedFields.geography)
+                prioritizedCourses = [...new Set([...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('GGR252'))])];
+            else 
+                prioritizedCourses = [...new Set([...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('TEP'))])];
             return prioritizedCourses.slice(0, 4);
         }
-        if (selectedFields.aiMinor) {
+
+        if (selectedFields.aiMinor){
             prioritizedCourses = [...new Set([...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('HPS346'))])];
             sortedCourses = sortedCourses.filter(course => !course.code.startsWith('HPS346'));
         }
@@ -128,76 +133,76 @@ const App = () => {
 
     return (
         <div className="App">
-        <p><b>UofT</b> Engineering <b>Bird HSS</b> Courses</p>
-        <a href="https://forms.gle/ED68qWhJpU43JghN6">Request Bird Course or Correct Info</a>
-        <br/><br/>
-        <button className="button" onClick={() => setIsModalOpen(true)}>Automatically Pick Your Courses</button>
-        {isModalOpen && (
-            <div className="modal-background">
-                <div className="modal-content">
-                    <button className="close-button" onClick={closeXModal}>X</button>
-                        {!showTopCourses ? (
-                            <form className="form" onSubmit={handleSubmit}>
-                                <div className="checkbox-group">
-                                    <label>
-                                        <b>Only use this for reference. Select all that applies:</b>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="csc" onChange={handleCheckboxChange} />
-                                        I will be taking 3 CSC Courses (excluding CSC300)
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="businessMinor" onChange={handleCheckboxChange} />
-                                        I am planning to pursue business minor.
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="aiMinor" onChange={handleCheckboxChange} />
-                                        I am planning to pursue AI minor and I want to avoid ECE368.
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="geography" onChange={handleCheckboxChange} />
-                                        I am interested in Geography.
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="architecture" onChange={handleCheckboxChange} />
-                                        I am interested in Architecture.
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="mythology" onChange={handleCheckboxChange} />
-                                        I am interested in Classical Mythology.
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" name="communication" onChange={handleCheckboxChange} />
-                                        I am interested in Engineering Communication.
-                                    </label>
-                                </div>
-                                <div className="radio-group">
-                                    <label><b>What is your Goal?: </b></label>
-                                    <label>
-                                        <input type="radio" name="goal" value="minimizeWorkload" onChange={handleGoalChange} />
-                                        Minimize Workload
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="goal" value="gpaBooster" onChange={handleGoalChange} />
-                                        GPA Booster
-                                    </label>
-                                </div>
-                                <button className="button submit-button" type="submit">Find Courses</button>
-                            </form>
-                        ) : (
-                            <>
-                                <label><b>Predicted HSS Courses</b></label>
+            <p><b>UofT</b> Engineering <b>Bird HSS</b> Courses</p>
+            <a href="https://forms.gle/ED68qWhJpU43JghN6">Request Bird Course or Correct Info</a>
+            <br/><br/>
+            <button className="button" onClick={() => setIsModalOpen(true)}>Automatically Pick Your Courses</button>
+            {isModalOpen && (
+                <div className="modal-background">
+                    <div className="modal-content">
+                        <button className="close-button" onClick={closeXModal}>X</button>
+                            {!showTopCourses ? (
+                                <form className="form" onSubmit={handleSubmit}>
+                                    <div className="checkbox-group">
+                                        <label>
+                                            <b>Only use this for reference. Select all that applies:</b>
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="csc" onChange={handleCheckboxChange} />
+                                            I will be taking 3 CSC Courses (excluding CSC300)
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="businessMinor" onChange={handleCheckboxChange} />
+                                            I am planning to pursue business minor.
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="aiMinor" onChange={handleCheckboxChange} />
+                                            I am planning to pursue AI minor and I want to avoid ECE368.
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="geography" onChange={handleCheckboxChange} />
+                                            I am interested in Geography.
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="architecture" onChange={handleCheckboxChange} />
+                                            I am interested in Architecture.
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="mythology" onChange={handleCheckboxChange} />
+                                            I am interested in Classical Mythology.
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="communication" onChange={handleCheckboxChange} />
+                                            I am interested in Engineering Communication.
+                                        </label>
+                                    </div>
+                                    <div className="radio-group">
+                                        <label><b>What is your Goal?: </b></label>
+                                        <label>
+                                            <input type="radio" name="goal" value="minimizeWorkload" onChange={handleGoalChange} />
+                                            Minimize Workload
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="goal" value="gpaBooster" onChange={handleGoalChange} />
+                                            GPA Booster
+                                        </label>
+                                    </div>
+                                    <button className="button submit-button" type="submit">Find Courses</button>
+                                </form>
+                            ) : (
                                 <>
-                                    {topCourses.map(course => (
-                                        <label key={course.id}>{course.code} - {course.title}</label>
-                                    ))}
+                                    <label><b>Predicted HSS Courses</b></label>
+                                    <>
+                                        {topCourses.map(course => (
+                                            <label key={course.id}>{course.code} - {course.title}</label>
+                                        ))}
+                                    </>
                                 </>
-                            </>
-                        )}
+                            )}
+                    </div>
                 </div>
-            </div>
-        )}
-        <CoursesTable courses={data} />
+            )}
+            <CoursesTable courses={data} />
         </div>
     );
 };

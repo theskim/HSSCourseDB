@@ -1,28 +1,28 @@
 import React, { useState, useMemo } from 'react';
 
 const CoursesTable = ({ courses }) => {
-  const [sortConfig, setSortConfig] = useState({ key: 'code', direction: 'ascending' });
+  const [sortConfig, setSortConfig] = useState({ key: 'code', ascending: true });
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 10;
 
   const requestSort = (key) => {
-    let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let ascending = true;
+    if (sortConfig.key === key && sortConfig.ascending) {
+        ascending = false;
     } else {
-      direction = 'ascending';
+        ascending = true;
     }
-    setSortConfig({ key, direction });
+    setSortConfig({ key, ascending });
   };
 
   const sortedCourses = useMemo(() => {
     let sortableCourses = [...courses];
     if (sortConfig.key !== null) {
-      sortableCourses.sort((a, b) => {
-        if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.direction === 'ascending' ? -1 : 1;
-        if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.direction === 'ascending' ? 1 : -1;
+        sortableCourses.sort((a, b) => { 
+        if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.ascending ? -1 : 1;
+        if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.ascending ? 1 : -1;
         return 0;
-      });
+        });
     }
     return sortableCourses;
   }, [courses, sortConfig]);
