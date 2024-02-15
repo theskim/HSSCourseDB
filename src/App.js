@@ -129,7 +129,7 @@ const App = () => {
     return (
         <div className="App">
         <p><b>UofT</b> Engineering <b>Bird HSS</b> Courses</p>
-        <a href="https://forms.gle/ED68qWhJpU43JghN6">Request Bird Course</a>
+        <a href="https://forms.gle/ED68qWhJpU43JghN6">Request Bird Course or Correct Info</a>
         <br/><br/>
         <button className="button" onClick={() => setIsModalOpen(true)}>Automatically Pick Your Courses</button>
         {isModalOpen && (
