@@ -194,7 +194,7 @@ const App = () => {
                                     <label><b>Predicted HSS Courses</b></label>
                                     <>
                                         {topCourses.map(course => (
-                                            <label key={course.id}>{course.code} - {course.title}</label>
+                                            <label key={course.id}><a href={course.url}>{course.code}</a> - {course.title}</label>
                                         ))}
                                     </>
                                 </>
