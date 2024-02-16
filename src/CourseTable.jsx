@@ -24,8 +24,12 @@ const CoursesTable = ({ courses }) => {
     };
 
     const sortCoursesByGrade = useCallback((a, b) => {
-        return (gradeValues[b.course_avg] || -1) - (gradeValues[a.course_avg] || -1);
-    }, []);
+        if (sortConfig.ascending)
+            return (gradeValues[b.course_avg] || -1) - (gradeValues[a.course_avg] || -1);
+        else
+            return (gradeValues[a.course_avg] || -1) - (gradeValues[b.course_avg] || -1);
+    }, [sortConfig, gradeValues]);
+
 
     const sortedCourses = useMemo(() => {
         let sortableCourses = [...courses];
@@ -40,6 +44,7 @@ const CoursesTable = ({ courses }) => {
         }
         return sortableCourses;
     }, [courses, sortConfig, sortCoursesByGrade]);
+
     const pageCount = Math.ceil(sortedCourses.length / coursesPerPage);
 
     const currentCourses = useMemo(() => {
