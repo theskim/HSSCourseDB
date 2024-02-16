@@ -60,7 +60,7 @@ const CoursesTable = ({ courses }) => {
             <thead>
                 <tr>
                 <th onClick={() => requestSort('code')}>Course Code</th>
-                <th onClick={() => requestSort('title')}>Title</th>
+                <th className="title" onClick={() => requestSort('title')}>Title</th>
                 <th onClick={() => requestSort('course_avg')}>Typical Avg.</th>
                 <th onClick={() => requestSort('description')}>Why this Course?</th>
                 <th onClick={() => requestSort('summer')}>Summer?</th>
@@ -70,7 +70,7 @@ const CoursesTable = ({ courses }) => {
                 {currentCourses.map((course) => (
                 <tr key={course.id}>
                     <td><a href={course.url}>{course.code}</a></td>
-                    <td>{course.title}</td>
+                    <td className="title">{course.title}</td>
                     <td>{course.course_avg}</td>
                     <td>{course.description}</td>
                     <td>
