@@ -145,7 +145,7 @@ const App = () => {
                                 <form className="form" onSubmit={handleSubmit}>
                                     <div className="checkbox-group">
                                         <label>
-                                            <b>This prompt is just a guide; use it for reference only. Please select all options that apply to you:</b>
+                                            <b>This prompt is just a guide; use it for reference only.<br/>Please select all options that apply to you:</b>
                                         </label>
                                         <label>
                                             <input type="checkbox" name="csc" onChange={handleCheckboxChange} />
