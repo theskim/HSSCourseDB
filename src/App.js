@@ -136,7 +136,7 @@ const App = () => {
             <p><b>UofT</b> Engineering <b>Bird HSS</b> Courses</p>
             <a href="https://forms.gle/ED68qWhJpU43JghN6">Request Bird Course or Correct Info</a>
             <br/><br/>
-            <button className="button" onClick={() => setIsModalOpen(true)}>Automatically Pick Your Courses</button>
+            <button className="button" onClick={() => setIsModalOpen(true)}>Automatically Pick Courses</button>
             {isModalOpen && (
                 <div className="modal-background">
                     <div className="modal-content">
@@ -145,19 +145,19 @@ const App = () => {
                                 <form className="form" onSubmit={handleSubmit}>
                                     <div className="checkbox-group">
                                         <label>
-                                            <b>Only use this for reference. Select all that applies:</b>
+                                            <b>This prompt is just a guide; use it for reference only. Please select all options that apply to you:</b>
                                         </label>
                                         <label>
                                             <input type="checkbox" name="csc" onChange={handleCheckboxChange} />
-                                            I will be taking 3 CSC Courses (excluding CSC300)
+                                            I plan to take 3 CSC courses (excluding CSC300).
                                         </label>
                                         <label>
                                             <input type="checkbox" name="businessMinor" onChange={handleCheckboxChange} />
-                                            I am planning to pursue business minor.
+                                            I am planning to pursue a minor in Engineering Business.
                                         </label>
                                         <label>
                                             <input type="checkbox" name="aiMinor" onChange={handleCheckboxChange} />
-                                            I am planning to pursue AI minor and I want to avoid ECE368.
+                                            I am aiming for an AI minor and wish to avoid ECE368.
                                         </label>
                                         <label>
                                             <input type="checkbox" name="geography" onChange={handleCheckboxChange} />
@@ -180,11 +180,11 @@ const App = () => {
                                         <label><b>What is your Goal?: </b></label>
                                         <label>
                                             <input type="radio" name="goal" value="minimizeWorkload" onChange={handleGoalChange} />
-                                            Minimize Workload
+                                            I want to minimize my workload.
                                         </label>
                                         <label>
                                             <input type="radio" name="goal" value="gpaBooster" onChange={handleGoalChange} />
-                                            GPA Booster
+                                            I am looking for GPA boosters.
                                         </label>
                                     </div>
                                     <button className="button submit-button" type="submit">Find Courses</button>
