@@ -39,7 +39,7 @@ const CoursesTable = ({ courses }) => {
             });
         }
         return sortableCourses;
-    }, [courses, sortConfig]);
+    }, [courses, sortConfig, sortCoursesByGrade]);
     const pageCount = Math.ceil(sortedCourses.length / coursesPerPage);
 
     const currentCourses = useMemo(() => {
