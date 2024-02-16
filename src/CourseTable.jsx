@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 
 const CoursesTable = ({ courses }) => {
     const [sortConfig, setSortConfig] = useState({ key: 'code', ascending: true });
@@ -23,9 +23,9 @@ const CoursesTable = ({ courses }) => {
         'F': 0, 'N/A': -1 
     };
 
-    const sortCoursesByGrade = (a, b) => {
+    const sortCoursesByGrade = useCallback((a, b) => {
         return (gradeValues[b.course_avg] || -1) - (gradeValues[a.course_avg] || -1);
-    };
+    }, []);
 
     const sortedCourses = useMemo(() => {
         let sortableCourses = [...courses];
@@ -39,8 +39,7 @@ const CoursesTable = ({ courses }) => {
             });
         }
         return sortableCourses;
-    }, [courses, sortConfig, sortCoursesByGrade]);
-
+    }, [courses, sortConfig]);
     const pageCount = Math.ceil(sortedCourses.length / coursesPerPage);
 
     const currentCourses = useMemo(() => {
