@@ -73,7 +73,7 @@ const CoursesTable = ({ courses }) => {
                     <td>{course.course_avg}</td>
                     <td>{course.description}</td>
                     <td>
-                        {course.summer ? '✓' : '✕'}
+                        {course.summer ? <b style={{ color: 'green' }}>✓</b> : <b style={{ color: 'red' }}>✕</b>}
                     </td>
                 </tr>
                 ))}
