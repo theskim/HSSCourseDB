@@ -3,15 +3,14 @@ import React, { useState, useCallback, useMemo } from 'react';
 const CoursesTable = ({ courses }) => {
     const [sortConfig, setSortConfig] = useState({ key: 'code', ascending: true });
     const [currentPage, setCurrentPage] = useState(1);
-    const coursesPerPage = 10;
+    const coursesPerPage = 9;
 
     const requestSort = (key) => {
         let ascending = true;
-        if (sortConfig.key === key && sortConfig.ascending) {
+        if (sortConfig.key === key && sortConfig.ascending)
             ascending = false;
-        } else {
+        else 
             ascending = true;
-        }
         setSortConfig({ key, ascending });
     };
 

@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 const courses = data;
 
 const App = () => {
+    const year = new Date().getFullYear();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedFields, setSelectedFields] = useState({
         csc: false,
@@ -203,6 +204,9 @@ const App = () => {
                 </div>
             )}
             <CoursesTable courses={data} />
+            <footer className="App-footer">
+                <a href="https://www.youtube.com/watch?v=ZV7vFkZ1bsM">.</a>
+            </footer>
         </div>
     );
 };
