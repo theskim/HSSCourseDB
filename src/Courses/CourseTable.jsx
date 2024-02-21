@@ -32,12 +32,12 @@ const CoursesTable = ({ courses }) => {
         if (key === 'season') {
             setSeasonSortOrder(prevOrder => (prevOrder + 1) % 3);
             message = "Sort by Terms in ";
-            if (seasonSortOrder === 0)
+            if (seasonSortOrder === 2)
                 message += "Fall → Winter → Summer Order";
             else if (seasonSortOrder === 1)
-                message += message += "Winter → Summer → Fall Order";
+                message += "Summer → Fall → Winter Order";
             else
-                message += message += "Summer → Fall → Winter Order";
+                message += "Winter → Summer → Fall Order";
 
             setSortMessage(message);
         }
