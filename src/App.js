@@ -49,8 +49,6 @@ const App = () => {
         communication: 0,
         politics: 0,
         philosophy: 0,
-        criminology: 0,
-        history: 0,
     });
 
     const incrementInterest = (interest) => {

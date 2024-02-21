@@ -66,6 +66,7 @@ tr:nth-child(even) {
   min-height: 50%;
   vertical-align: middle;
   overflow-y: auto;
+  min-width: min(40rem, 85vw);
 }
 
 @media screen and (max-width: 768px) {
