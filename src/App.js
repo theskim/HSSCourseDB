@@ -301,13 +301,54 @@ const App = () => {
                                     <label><b>Predicted HSS Courses</b></label>
                                     <>
                                         {topCourses.map(course => (
-                                            <label key={course.id}><a href={course.url}>{course.code}</a> - {course.title}</label>
+                                            <label key={course.id}><a href={course.url}>{course.code}</a> - {course.title}
+                                                <span className="tooltip">
+                                                    {course.fall && (
+                                                        <>
+                                                            <span>&#x1F342;</span>
+                                                            <span className="tooltiptext">Fall</span>
+                                                        </>
+                                                    )}
+                                                    {course.winter && (
+                                                        <>
+                                                            <span>&#x2744;&#xFE0F;</span>
+                                                            <span className="tooltiptext">Winter</span>
+                                                        </>
+                                                    )}
+                                                    {course.summer && (
+                                                            <>
+                                                                <span>&#x1F31E;</span>
+                                                                <span className="tooltiptext">Summer</span>
+                                                            </>
+                                                    )}
+                                                </span>
+                                            </label>
                                         ))}
                                     </>
                                     <label><b>Alternative Suggested Courses</b></label>
                                     <>
                                         {alternativeCourses.map(course => (
-                                            <label key={course.id}><a href={course.url}>{course.code}</a> - {course.title}</label>
+                                            <label key={course.id}><a href={course.url}>{course.code}</a> - {course.title}<span className="tooltip">
+                                                    {course.fall && (
+                                                        <>
+                                                            <span>&#x1F342;</span>
+                                                            <span className="tooltiptext">Fall</span>
+                                                        </>
+                                                    )}
+                                                    {course.winter && (
+                                                        <>
+                                                            <span>&#x2744;&#xFE0F;</span>
+                                                            <span className="tooltiptext">Winter</span>
+                                                        </>
+                                                    )}
+                                                    {course.summer && (
+                                                            <>
+                                                                <span>&#x1F31E;</span>
+                                                                <span className="tooltiptext">Summer</span>
+                                                            </>
+                                                    )}
+                                                </span>
+                                            </label>
                                         ))}
                                     </>
                                 </>
