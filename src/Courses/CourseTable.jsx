@@ -10,10 +10,12 @@ const CoursesTable = ({ courses }) => {
     const [pageRange, setPageRange] = useState({ start: 1, end: 5 });
     const [searchQuery, setSearchQuery] = useState('');
     const [lastAction, setLastAction] = useState('sort');
-    
+    const [sortMessage, setSortMessage] = useState("Sort by Course Code in Ascending Order"); 
+
     // 0: Fall > Winter > Summer, 1: Winter > Summer > Fall, 2: Summer > Fall > Winter
     const [seasonSortOrder, setSeasonSortOrder] = useState(0); 
 
+    // store current paghe in local storage to maintain it when refreshed
     useEffect(() => {
         localStorage.setItem('currentPage', currentPage);
     }, [currentPage]);
@@ -26,10 +28,37 @@ const CoursesTable = ({ courses }) => {
             ascending = true;
         setSortConfig({ key, ascending });
 
-        if (key === 'season') 
+        var message;
+        if (key === 'season') {
             setSeasonSortOrder(prevOrder => (prevOrder + 1) % 3);
-        else 
+            message = "Sort by Terms in ";
+            if (seasonSortOrder === 0)
+                message += "Fall → Winter → Summer order";
+            else if (seasonSortOrder === 1)
+                message += message += "Winter → Summer → Fall order";
+            else
+                message += message += "Summer → Fall → Winter order";
+
+            setSortMessage(message);
+        }
+        else {
             setCurrentPage(1);
+            if (key === 'code')
+                message = "Sort by Course Code in "
+            else if (key === 'title')
+                message = "Sort by Course Title in "
+            else if (key === 'course_avg')
+                message = "Sort by Course Average in "
+            else if (key === 'description')
+                message = "Sort by Course Description in "
+
+            if (ascending)
+                message += "Ascending Order";
+            else
+                message += "Descending Order";
+                
+            setSortMessage(message);
+        }
 
         setLastAction('sort');
     };
@@ -59,21 +88,27 @@ const CoursesTable = ({ courses }) => {
 
         const applySortConfig = (a, b) => {
             if (sortConfig.key === 'course_avg')
-                return sortCoursesByGrade(a, b) * (sortConfig.ascending ? 1 : -1);
+                return sortCoursesByGrade(a, b);
             else if (sortConfig.key){
                 let compareResult = 0;
                 if (sortConfig.key === 'code') {
-                    const splitRegex = /(\d+)/;
-                    let aParts = a.code.split(splitRegex);
-                    let bParts = b.code.split(splitRegex);
+                    const splitRegex = /(\D+)(\d+)/; 
+                    let aMatches = a.code.match(splitRegex);
+                    let bMatches = b.code.match(splitRegex);
 
-                    if (aParts[0] === bParts[0]) {
-                        let aNum = parseInt(aParts[1], 10);
-                        let bNum = parseInt(bParts[1], 10);
-                        compareResult = aNum - bNum;
-                    } else {
-                        compareResult = aParts[0].localeCompare(bParts[0]);
+                    let aDepartment = aMatches[1];
+                    let bDepartment = bMatches[1];
+                    let aNum = parseInt(aMatches[2], 10);
+                    let bNum = parseInt(bMatches[2], 10);
+
+                    if (aDepartment !== bDepartment) {
+                        compareResult = sortConfig.toggle ? bDepartment.localeCompare(aDepartment) : aDepartment.localeCompare(bDepartment);
                     }
+                    else 
+                        compareResult = aNum - bNum;
+                    
+
+                    return sortConfig.ascending ? compareResult : -compareResult;
                 } else if (sortConfig.key === 'season'){
                     const termScores = [
                         { Fall: 3, Winter: 2, Summer: 1 }, // Fall > Winter > Summer
@@ -168,6 +203,7 @@ const CoursesTable = ({ courses }) => {
                     )}
                 </div>
             </div>
+            <div id="sortMessageContainer">{sortMessage}</div>
             {sortedCourses.length > 0 ? (
                 <>
                     <div className="table-responsive">

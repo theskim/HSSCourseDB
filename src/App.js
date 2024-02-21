@@ -86,8 +86,8 @@ const App = () => {
 
     const handleGoalChange = (event) => {
         setSelectedFields(prev => ({
-        ...prev,
-        goal: event.target.value,
+            ...prev,
+            goal: event.target.value,
         }));
     };
 
@@ -231,7 +231,7 @@ const App = () => {
     return (
         <div className="App">
             <p><b>UofT</b> Engineering <b>HSS</b> Courses Selector</p>
-            <a href="https://forms.gle/ED68qWhJpU43JghN6">Request Course or Correct Info</a>
+            <a href="https://forms.gle/ED68qWhJpU43JghN6">Request a Course or Correct Info</a>
             <br/><br/>
             <button className="button" onClick={() => setIsModalOpen(true)}>Automatically Pick Courses</button>
             {isModalOpen && (
@@ -332,19 +332,16 @@ const App = () => {
                                                     {course.fall && (
                                                         <>
                                                             <span>&#x1F342;</span>
-                                                            <span className="tooltiptext">Fall</span>
                                                         </>
                                                     )}
                                                     {course.winter && (
                                                         <>
                                                             <span>&#x2744;&#xFE0F;</span>
-                                                            <span className="tooltiptext">Winter</span>
                                                         </>
                                                     )}
                                                     {course.summer && (
                                                             <>
                                                                 <span>&#x1F31E;</span>
-                                                                <span className="tooltiptext">Summer</span>
                                                             </>
                                                     )}
                                                 </span>
@@ -358,7 +355,7 @@ const App = () => {
             )}
             <CoursesTable courses={data} />
             <footer className="App-footer">
-                Pretty much all from <a href="https://app.powerbi.com/reportEmbed?reportId=644e934c-b65d-41db-8767-84a03f149447&autoAuth=true&ctid=78aac226-2f03-4b4d-9037-b46d56c55210">here</a> except ones not available right now <br />
+                Nearly all of the data from <a href="https://app.powerbi.com/reportEmbed?reportId=644e934c-b65d-41db-8767-84a03f149447&autoAuth=true&ctid=78aac226-2f03-4b4d-9037-b46d56c55210">here</a> except for the courses that are currently not offered. <br />
                 Sources: <a href="https://uoftcourses.web.app/">here</a> <a href="https://docs.google.com/spreadsheets/d/1cqcxrcIXoVKsspBXS3WBasdxiaECem2M1t-dGAKVqVU/edit#gid=103767365">here</a>
             </footer>
         </div>
