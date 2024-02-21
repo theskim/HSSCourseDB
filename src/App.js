@@ -14,9 +14,9 @@ const App = () => {
         politics: ['POL101H1', 'POL107H1', 'POL109H1', 'POL214H1', 'POL208H1', 'POL200Y1', 'POL349H1'],
         communication: ['TEP444H1', 'TEP442H1', 'TEP343H1', 'TEP445H1', 'TEP449H1', 'TEP321H1', 'TEP322H1', 'APS500H1'],
         philosophy: ['HPS100H1', 'HPS250H1', 'PHL100Y1', 'PHL100Y1', 'PHL233H1','PHL200Y1', 'PHL256H1', 'PHL205H1'],
-        history: ['HPS100H1', 'HPS250H1', 'PHL100Y1', 'PHL233H1', 'PHL200Y1', 'PHL256H1', 'PHL205H1'],
         linguistics: ['LIN101H1', 'LIN102H1', 'LIN201H1', 'LIN203H1', 'LIN200H1','LIN241H1', 'FRE272H1', 'LIN229H1'],
         enviornment: ['FOR308H1', 'ENV100H1', 'GGR107H1', 'ENV221H1', 'FOR303H1', 'ENV323H1','ENV333H1', 'ENV462H1'],
+        anthropology: ['ANT100Y1', 'ANT100Y1', 'ANT200Y1', 'ANT200Y1', 'ANT253H1'],
         ai: ['HPS340H1'],
         business: ['GGR252H1', 'TEP444H1', 'APS500H1', 'TEP343H1', 'TEP445H1', 'TEP449H1'],
         communicationCert: ['TEP322H1', 'TEP324H1', 'TEP449H1', 'TEP445H1', 'TEP320H1'],
@@ -55,6 +55,7 @@ const App = () => {
         philosophy: 0,
         linguistics: 0,
         enviornment: 0,
+        anthropology: 0,
     });
 
     const incrementInterest = (interest) => {
@@ -231,13 +232,35 @@ const App = () => {
             somewhatPrioritizedCourses.sort(sortCoursesByWorkload);
 
         let finalCourses = [...new Set([...prioritizedCourses, ...somewhatPrioritizedCourses, ...sortedCourses])];
-        let recommandCourses = finalCourses.slice(0, 4);
-        
+
+        let recommendCourses = [];
+        let i = 0; 
+        while (recommendCourses.length < 4 && i < finalCourses.length) {
+            const course = finalCourses[i];
+            if (course.code.includes('Y1') && recommendCourses.length < 3) // year course
+                recommendCourses.push(course, course);
+            else 
+                recommendCourses.push(course);
+            i++;
+        }
+
+        if (recommendCourses.length > 4) 
+            recommendCourses = recommendCourses.slice(0, 4);
+
+        // remove duplicates
+        tempAlternativeCourses = [...new Set(tempAlternativeCourses.map(course => course.code))]
+            .map(code => tempAlternativeCourses.find(course => course.code === code));
+
+        // filter out courses from tempAlternativeCourses that are already in recommendCourses
+        tempAlternativeCourses = tempAlternativeCourses.filter(altCourse => 
+            !recommendCourses.some(recCourse => recCourse.code === altCourse.code));
+
         let altCoursesRemaining = 6 - tempAlternativeCourses.length;
         if (altCoursesRemaining > 0) 
             tempAlternativeCourses = [...tempAlternativeCourses, ...finalCourses.slice(5, 5 + altCoursesRemaining)];
-
-        return [ recommandCourses, tempAlternativeCourses ];
+        
+        tempAlternativeCourses = tempAlternativeCourses.slice(0, 6);
+        return [ recommendCourses, tempAlternativeCourses ];
     };
 
     const handleSubmit = (event) => {
@@ -291,7 +314,7 @@ const App = () => {
                                     </div>
                                     <div className="radio-group">
                                         <label><b>You can select none if you are not interested in any of them.<br/> Distribute up to 4 points based on your interests:</b></label>
-                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy', 'linguistics', 'enviornment'].map((interest) => (
+                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy', 'linguistics', 'enviornment', 'anthropology'].map((interest) => (
                                             <div key={interest} className="interest-input">
                                                 <span>{interest === 'politics' ? 'Political Science' : interest.charAt(0).toUpperCase() + interest.slice(1)}:</span>
                                                 <button type="button" onClick={() => decrementInterest(interest)}>-</button>
@@ -364,9 +387,9 @@ const App = () => {
                                                         </>
                                                     )}
                                                     {course.summer && (
-                                                            <>
-                                                                <span>&#x1F31E;</span>
-                                                            </>
+                                                        <>
+                                                            <span>&#x1F31E;</span>
+                                                        </>
                                                     )}
                                                 </span>
                                             </label>
