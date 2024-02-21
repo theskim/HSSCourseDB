@@ -14,8 +14,9 @@ const App = () => {
         politics: ['POL101H1', 'POL107H1', 'POL109H1', 'POL214H1', 'POL208H1', 'POL200Y1', 'POL349H1'],
         communication: ['TEP444H1', 'TEP442H1', 'TEP343H1', 'TEP445H1', 'TEP449H1', 'TEP321H1', 'TEP322H1', 'APS500H1'],
         philosophy: ['HPS100H1', 'HPS250H1', 'PHL100Y1', 'PHL100Y1', 'PHL233H1','PHL200Y1', 'PHL256H1', 'PHL205H1'],
-        history: ['HPS100H1', 'HPS250H1', 'PHL100Y1', 'PHL100Y1', 'PHL233H1','PHL200Y1', 'PHL256H1', 'PHL205H1'],
+        history: ['HPS100H1', 'HPS250H1', 'PHL100Y1', 'PHL233H1', 'PHL200Y1', 'PHL256H1', 'PHL205H1'],
         linguistics: ['LIN101H1', 'LIN102H1', 'LIN201H1', 'LIN203H1', 'LIN200H1','LIN241H1', 'FRE272H1', 'LIN229H1'],
+        enviornment: ['FOR308H1', 'ENV100H1', 'GGR107H1', 'ENV221H1', 'FOR303H1', 'ENV323H1','ENV333H1', 'ENV462H1'],
         ai: ['HPS340H1'],
         business: ['GGR252H1', 'TEP444H1', 'APS500H1', 'TEP343H1', 'TEP445H1', 'TEP449H1'],
         communicationCert: ['TEP322H1', 'TEP324H1', 'TEP449H1', 'TEP445H1', 'TEP320H1'],
@@ -51,6 +52,7 @@ const App = () => {
         politics: 0,
         philosophy: 0,
         linguistics: 0,
+        enviornment: 0,
     });
 
     const incrementInterest = (interest) => {
@@ -265,7 +267,7 @@ const App = () => {
                                     </div>
                                     <div className="radio-group">
                                         <label><b>Distribute up to 4 points based on your interests:</b></label>
-                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy', 'linguistics'].map((interest) => (
+                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy', 'linguistics', 'enviornment'].map((interest) => (
                                             <div key={interest} className="interest-input">
                                                 <span>{interest === 'politics' ? 'Political Science' : interest.charAt(0).toUpperCase() + interest.slice(1)}:</span>
                                                 <button type="button" onClick={() => decrementInterest(interest)}>-</button>
