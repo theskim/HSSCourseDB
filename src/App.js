@@ -15,6 +15,7 @@ const App = () => {
         communication: ['TEP444H1', 'TEP442H1', 'TEP343H1', 'TEP445H1', 'TEP449H1', 'TEP321H1', 'TEP322H1', 'APS500H1'],
         philosophy: ['HPS100H1', 'HPS250H1', 'PHL100Y1', 'PHL100Y1', 'PHL233H1','PHL200Y1', 'PHL256H1', 'PHL205H1'],
         history: ['HPS100H1', 'HPS250H1', 'PHL100Y1', 'PHL100Y1', 'PHL233H1','PHL200Y1', 'PHL256H1', 'PHL205H1'],
+        linguistics: ['LIN101H1', 'LIN102H1', 'LIN201H1', 'LIN203H1', 'LIN200H1','LIN241H1', 'FRE272H1', 'LIN229H1'],
         ai: ['HPS340H1'],
         business: ['GGR252H1', 'TEP444H1', 'APS500H1', 'TEP343H1', 'TEP445H1', 'TEP449H1'],
         communicationCert: ['TEP322H1', 'TEP324H1', 'TEP449H1', 'TEP445H1', 'TEP320H1'],
@@ -49,6 +50,7 @@ const App = () => {
         communication: 0,
         politics: 0,
         philosophy: 0,
+        linguistics: 0,
     });
 
     const incrementInterest = (interest) => {
@@ -263,7 +265,7 @@ const App = () => {
                                     </div>
                                     <div className="radio-group">
                                         <label><b>Distribute up to 4 points based on your interests:</b></label>
-                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy'].map((interest) => (
+                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy', 'linguistics'].map((interest) => (
                                             <div key={interest} className="interest-input">
                                                 <span>{interest === 'politics' ? 'Political Science' : interest.charAt(0).toUpperCase() + interest.slice(1)}:</span>
                                                 <button type="button" onClick={() => decrementInterest(interest)}>-</button>
