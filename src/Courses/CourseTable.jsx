@@ -5,7 +5,7 @@ const CoursesTable = ({ courses }) => {
     const [currentPage, setCurrentPage] = useState(() => {
         return Number(localStorage.getItem('currentPage')) || 1;
     });
-    const coursesPerPage = 15;
+    const coursesPerPage = 17;
     const rangeSize = 5;
     const [pageRange, setPageRange] = useState({ start: 1, end: 5 });
     const [searchQuery, setSearchQuery] = useState('');

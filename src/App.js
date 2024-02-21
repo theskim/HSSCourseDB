@@ -20,6 +20,7 @@ const App = () => {
         ai: ['HPS340H1'],
         business: ['GGR252H1', 'TEP444H1', 'APS500H1', 'TEP343H1', 'TEP445H1', 'TEP449H1'],
         communicationCert: ['TEP322H1', 'TEP324H1', 'TEP449H1', 'TEP445H1', 'TEP320H1'],
+        communicationAndLeadership: ['TEP343H1', 'TEP445H1', 'TEP444H1', 'TEP449H1', 'TEP442H1', 'TEP322H1', 'TEP324H1', 'TEP321H1', 'TEP320H1'],
         leadership: ['TEP444H1', 'TEP343H1', 'TEP447H1', 'TEP449H1', 'TEP445H1'],
     };  
 
@@ -28,6 +29,7 @@ const App = () => {
         csc: false,
         businessMinor: false,
         aiMinor: false,
+        businessCert: false,
         communication: false,
         leadership: false,
         goal: 'minimizeWorkload' 
@@ -77,7 +79,9 @@ const App = () => {
             csc: false,
             businessMinor: false,
             aiMinor: false,
+            businessCert: false,
             communication: false,
+            leadership: false,
             goal: 'minimizeWorkload' 
         });
         setShowTopCourses(false); 
@@ -134,6 +138,11 @@ const App = () => {
                 if (foundCourse) tempAlternativeCourses.push(foundCourse);
             });
         }
+        else if (selectedFields.businessCert) {
+            prioritizedCourses = sortedCourses.filter(course => course.code.startsWith('JRE420'));
+            prioritizedCourses = [...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('JRE410'))];
+            tempAlternativeCourses = sortedCourses.filter(course => course.code.startsWith('JRE300'));
+        }
 
         if (selectedFields.aiMinor) {
             prioritizedCourses = [...new Set([...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('HPS346'))])];
@@ -147,7 +156,20 @@ const App = () => {
             });
         }
 
-        if (selectedFields.communication) {
+        if (selectedFields.communication && selectedFields.leadership) {
+            const relevantCourses = coursesByInterest['communicationAndLeadership']?.slice(0, 4) || [];
+
+            relevantCourses.forEach(courseCode => {
+                const foundCourse = sortedCourses.find(course => course.code === courseCode);
+                if (foundCourse) prioritizedCourses.push(foundCourse);
+            });
+            
+            const somewhatRelevantCourses = coursesByInterest['communicationAndLeadership']?.slice(5, 9) || [];
+            somewhatRelevantCourses.forEach(courseCode => {
+                const foundCourse = sortedCourses.find(course => course.code === courseCode);
+                if (foundCourse) tempAlternativeCourses.push(foundCourse);
+            });
+        } else if (selectedFields.communication) {
             const relevantCourses = coursesByInterest['communicationCert']?.slice(0, 3) || [];
 
             relevantCourses.forEach(courseCode => {
@@ -160,9 +182,7 @@ const App = () => {
                 const foundCourse = sortedCourses.find(course => course.code === courseCode);
                 if (foundCourse) tempAlternativeCourses.push(foundCourse);
             });
-        }
-
-        if (selectedFields.leadership) {
+        } else if (selectedFields.leadership) {
             const relevantCourses = coursesByInterest['leadership']?.slice(0, 3) || [];
 
             relevantCourses.forEach(courseCode => {
@@ -257,11 +277,15 @@ const App = () => {
                                             I am aiming for an AI minor and wish to avoid ECE368.
                                         </label>
                                         <label>
+                                        <input type="checkbox" name="businessCert" onChange={handleCheckboxChange} />
+                                            I am aiming for a Certifcate in Engineering Business.
+                                        </label>
+                                        <label>
                                         <input type="checkbox" name="communication" onChange={handleCheckboxChange} />
                                             I am aiming for a Certifcate in Communication.
                                         </label>
                                         <label>
-                                        <input type="checkbox" name="communication" onChange={handleCheckboxChange} />
+                                        <input type="checkbox" name="leadership" onChange={handleCheckboxChange} />
                                             I am aiming for a Certifcate in Engineering Leadership.
                                         </label>
                                     </div>
