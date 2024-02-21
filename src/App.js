@@ -314,7 +314,6 @@ const App = () => {
             <CoursesTable courses={data} />
             <footer className="App-footer">
                 Pretty much all from <a href="https://app.powerbi.com/reportEmbed?reportId=644e934c-b65d-41db-8767-84a03f149447&autoAuth=true&ctid=78aac226-2f03-4b4d-9037-b46d56c55210">here</a> except ones not available right now<br/>
-                <a href="https://www.youtube.com/watch?v=ZV7vFkZ1bsM">.</a>
             </footer>
         </div>
     );
