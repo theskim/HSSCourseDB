@@ -265,7 +265,7 @@ const App = () => {
                                     </div>
                                     <div className="radio-group">
                                         <label><b>Distribute up to 4 points based on your interests:</b></label>
-                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy', 'criminology'].map((interest) => (
+                                        {['geography', 'architecture', 'mythology', 'communication', 'politics', 'philosophy'].map((interest) => (
                                             <div key={interest} className="interest-input">
                                                 <span>{interest === 'politics' ? 'Political Science' : interest.charAt(0).toUpperCase() + interest.slice(1)}:</span>
                                                 <button type="button" onClick={() => decrementInterest(interest)}>-</button>
