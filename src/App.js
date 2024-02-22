@@ -245,7 +245,7 @@ const App = () => {
                 continue;
             }
 
-            if (currCourse.code.includes('Y1') && recommendCourses.length <= 3 && !recommendCourses.find(course => course.code === currCourse.code)){
+            if (currCourse.code.includes('Y1') && recommendCourses.length <= 2 && !recommendCourses.find(course => course.code === currCourse.code)) {
                 recommendCourses.push(currCourse);
                 recommendCourses.push(currCourse); 
             }
