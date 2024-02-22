@@ -1,18 +1,17 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 
 const CoursesTable = ({ courses }) => {
+    const coursesPerPage = 17;
+    const rangeSize = 5;
+    
     const [sortConfig, setSortConfig] = useState({ key: 'code', ascending: true });
     const [currentPage, setCurrentPage] = useState(() => {
         return Number(localStorage.getItem('currentPage')) || 1;
     });
-    const coursesPerPage = 17;
-    const rangeSize = 5;
     const [pageRange, setPageRange] = useState({ start: 1, end: 5 });
     const [searchQuery, setSearchQuery] = useState('');
     const [lastAction, setLastAction] = useState('sort');
     const [sortMessage, setSortMessage] = useState("Sort by Course Code in Ascending Order"); 
-
-    // 0: Fall > Winter > Summer, 1: Winter > Summer > Fall, 2: Summer > Fall > Winter
     const [seasonSortOrder, setSeasonSortOrder] = useState(0); 
 
     // store current paghe in local storage to maintain it when refreshed

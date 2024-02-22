@@ -210,6 +210,7 @@ const App = () => {
                 const relevantCourses = coursesByInterest[interest]?.slice(0, points) || [];
                 const maxSliceIndex = Math.min(2 * points, coursesByInterest[interest]?.length || 0);
                 const somewhatRelevantCourses = coursesByInterest[interest]?.slice(points, maxSliceIndex) || [];
+                
                 somewhatRelevantCourses.forEach(courseCode => {
                     const foundCourse = sortedCourses.find(course => course.code === courseCode);
                     if (foundCourse) tempAlternativeCourses.push(foundCourse);
@@ -235,15 +236,25 @@ const App = () => {
 
         let recommendCourses = [];
         let i = 0; 
-        while (recommendCourses.length < 4 && i < finalCourses.length) {
-            const course = finalCourses[i];
-            if (course.code.includes('Y1') && recommendCourses.length < 3) // year course
-                recommendCourses.push(course, course);
-            else 
-                recommendCourses.push(course);
-            i++;
-        }
 
+        while (recommendCourses.length < 4) {
+            const currCourse = finalCourses[i];
+
+            if (!currCourse){
+                ++i;
+                continue;
+            }
+
+            if (currCourse.code.includes('Y1') && recommendCourses.length <= 3 && !recommendCourses.find(course => course.code === currCourse.code)){
+                recommendCourses.push(currCourse);
+                recommendCourses.push(currCourse); 
+            }
+            else if (currCourse.code.includes('H1') && !recommendCourses.find(course => course.code === currCourse.code))
+                recommendCourses.push(currCourse);
+
+            ++i;
+        }
+        
         if (recommendCourses.length > 4) 
             recommendCourses = recommendCourses.slice(0, 4);
 
@@ -347,25 +358,22 @@ const App = () => {
                                 <>
                                     <label><b>Predicted HSS Courses</b></label>
                                     <>
-                                        {topCourses.map(course => (
-                                            <label key={course.id}><a href={course.url}>{course.code}</a> - {course.title}
+                                        {topCourses.map((course, index) => (
+                                            <label key={`${course.code}-${index}`}><a href={course.url}>{course.code}</a> - {course.title}
                                                 <span className="tooltip">
                                                     {course.fall && (
                                                         <>
                                                             <span>&#x1F342;</span>
-                                                            <span className="tooltiptext">Fall</span>
                                                         </>
                                                     )}
                                                     {course.winter && (
                                                         <>
                                                             <span>&#x2744;&#xFE0F;</span>
-                                                            <span className="tooltiptext">Winter</span>
                                                         </>
                                                     )}
                                                     {course.summer && (
                                                             <>
                                                                 <span>&#x1F31E;</span>
-                                                                <span className="tooltiptext">Summer</span>
                                                             </>
                                                     )}
                                                 </span>
@@ -374,8 +382,8 @@ const App = () => {
                                     </>
                                     <label><b>Alternative Suggested Courses</b></label>
                                     <>
-                                        {alternativeCourses.map(course => (
-                                            <label key={course.id}><a href={course.url}>{course.code}</a> - {course.title}<span className="tooltip">
+                                        {alternativeCourses.map((course, index) => (
+                                            <label key={`${course.code}-${index}`}><a href={course.url}>{course.code}</a> - {course.title}<span className="tooltip">
                                                     {course.fall && (
                                                         <>
                                                             <span>&#x1F342;</span>
