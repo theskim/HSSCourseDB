@@ -270,7 +270,14 @@ const App = () => {
         let altCoursesRemaining = 6 - tempAlternativeCourses.length;
         if (altCoursesRemaining > 0) 
             tempAlternativeCourses = [...tempAlternativeCourses, ...finalCourses.slice(5, 5 + altCoursesRemaining)];
+
+        sortedCourses = sortedCourses.filter(altCourse => 
+            !recommendCourses.some(recCourse => recCourse.code === altCourse.code));
         
+        tempAlternativeCourses = [...tempAlternativeCourses, ...sortedCourses]
+        tempAlternativeCourses = [...new Set(tempAlternativeCourses.map(course => course.code))]
+            .map(code => tempAlternativeCourses.find(course => course.code === code));
+
         tempAlternativeCourses = tempAlternativeCourses.slice(0, 6);
         return [ recommendCourses, tempAlternativeCourses ];
     };
@@ -285,7 +292,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <p><b>UofT</b> Engineering <b>HSS</b> Courses Selector</p>
+            <p><b>UofT</b> Engineering <b>HSS/CS</b> Courses Selector</p>
             <a href="https://forms.gle/ED68qWhJpU43JghN6">Request a Course or Correct Info</a>
             <br/><br/>
             <button className="button" onClick={() => setIsModalOpen(true)}>Automatically Pick Courses</button>
