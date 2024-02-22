@@ -18,7 +18,7 @@ const App = () => {
         enviornment: ['FOR308H1', 'ENV100H1', 'GGR107H1', 'ENV221H1', 'FOR303H1', 'ENV323H1','ENV333H1', 'ENV462H1'],
         anthropology: ['ANT100Y1', 'ANT100Y1', 'ANT200Y1', 'ANT200Y1', 'ANT253H1'],
         ai: ['HPS340H1'],
-        business: ['GGR252H1', 'TEP444H1', 'APS500H1', 'TEP343H1', 'TEP445H1', 'TEP449H1'],
+        business: ['GGR252H1', 'TEP444H1', 'APS500H1', 'TEP343H1', 'TEP234H1', 'TEP445H1', 'TEP449H1', 'APS510H1', 'TEP448H1', 'APS420H1'],
         communicationCert: ['TEP322H1', 'TEP324H1', 'TEP449H1', 'TEP445H1', 'TEP320H1'],
         communicationAndLeadership: ['TEP343H1', 'TEP445H1', 'TEP444H1', 'TEP449H1', 'TEP442H1', 'TEP322H1', 'TEP324H1', 'TEP321H1', 'TEP320H1'],
         leadership: ['TEP444H1', 'TEP343H1', 'TEP447H1', 'TEP449H1', 'TEP445H1'],
@@ -132,7 +132,7 @@ const App = () => {
                 prioritizedCourses = [...new Set([...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('TEP444'))])];
                 sortedCourses = sortedCourses.filter(course => !course.code.startsWith('TEP444'));
             }
-            const relevantCourses = coursesByInterest['business']?.slice(0, 3) || [];
+            const relevantCourses = coursesByInterest['business']?.slice(0, 5) || [];
 
             relevantCourses.forEach(courseCode => {
                 const foundCourse = sortedCourses.find(course => course.code === courseCode);
@@ -143,6 +143,7 @@ const App = () => {
             prioritizedCourses = sortedCourses.filter(course => course.code.startsWith('JRE420'));
             prioritizedCourses = [...prioritizedCourses, ...sortedCourses.filter(course => course.code.startsWith('JRE410'))];
             tempAlternativeCourses = sortedCourses.filter(course => course.code.startsWith('JRE300'));
+            tempAlternativeCourses = [...tempAlternativeCourses, ...sortedCourses.filter(course => course.code.startsWith('CHE488H1'))];
         }
 
         if (selectedFields.aiMinor) {
