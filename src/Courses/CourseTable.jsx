@@ -161,7 +161,6 @@ const CoursesTable = ({ courses }) => {
             const newEnd = Math.min(prevRange.start + rangeSize - 1, pageCount);
             return { start: prevRange.start, end: Math.max(newEnd, 1) };
         });
-        setCurrentPage(1); 
     }, [pageCount]);
 
     const updatePageRange = (direction) => {
