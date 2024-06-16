@@ -3947,5 +3947,16 @@
     "summer": false,
     "fall": false,
     "winter": true
+  },
+  {
+    "code": "ENT200H1",
+    "title": "Introduction to Entrepreneurship",
+    "url": "https://artsci.calendar.utoronto.ca/course/ent200h1",
+    "course_avg": "",
+    "description": "CS Elective",
+    "workload": 1000,
+    "summer": false,
+    "fall": false,
+    "winter": true
   }
 ]
